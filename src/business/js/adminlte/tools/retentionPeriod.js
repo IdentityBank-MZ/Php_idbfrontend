@@ -25,7 +25,16 @@
  # * ********************************************************************* *
  */
 
+import {preventNegative} from "../../../../shared/js/helpers/form";
+
 const boxBody = $('.box-body');
+
+boxBody.on('keydown', '#businessretentionperiodform-maximum', preventNegative);
+
+boxBody.on('keydown', '#businessretentionperiodform-minimum', preventNegative);
+
+boxBody.on('keydown', '#businessretentionperiodform-reviewcycle', preventNegative);
+
 boxBody.on('input', '#businessretentionperiodform-maximum', e => {
    if(!isNaN(parseInt(e.target.value))) {
        $('.after-maximum').slideDown();
